@@ -1,0 +1,17 @@
+name: BetHelper-Heroku-Pinger
+# This workflow is triggered at a scheduled interval of every 25 minutes
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string.
+    # /30 denotes that it will run once every 30 minutes
+    - cron:  '*/1 * * * *'
+
+jobs:
+  pinger_job:
+    name: Ping heroku
+    runs-on: ubuntu-latest
+    env:
+      URL: ${{ secrets.URL }}
+    steps:
+      - id: ping
+        uses: larkonesvk/bethelper-pinger@main
