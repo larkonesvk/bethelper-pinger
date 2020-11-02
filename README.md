@@ -1,0 +1,3 @@
+# bethelper-pinger
+
+heroku pinger
